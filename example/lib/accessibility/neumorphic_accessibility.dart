@@ -40,8 +40,8 @@ class __PageState extends State<_Page> {
   double height = 150.0;
   double width = 150.0;
 
-  Color borderColor;
-  double borderWidth;
+  late Color borderColor;
+  late double borderWidth;
 
   static final minWidth = 50.0;
   static final maxWidth = 200.0;
@@ -68,10 +68,13 @@ class __PageState extends State<_Page> {
                 Padding(
                   padding:
                       const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
+                  child: ElevatedButton(
+                   
+                    style: ElevatedButton.styleFrom(
+                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
-                    color: Theme.of(context).accentColor,
+                    backgroundColor: Theme.of(context).primaryColor,
+                    ),
                     child: Text(
                       "back",
                       style: TextStyle(color: Colors.white),
@@ -104,7 +107,7 @@ class __PageState extends State<_Page> {
   int selectedConfiguratorIndex = 0;
 
   Widget _configurators() {
-    final Color buttonActiveColor = Theme.of(context).accentColor;
+    final Color buttonActiveColor = Theme.of(context).primaryColor;
     final Color buttonInnactiveColor = Colors.white;
 
     final Color textActiveColor = Colors.white;
@@ -124,12 +127,15 @@ class __PageState extends State<_Page> {
                 flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
-                    color: selectedConfiguratorIndex == 0
+                    backgroundColor: selectedConfiguratorIndex == 0
                         ? buttonActiveColor
                         : buttonInnactiveColor,
+                    ),
+                    
                     child: Text(
                       "Style",
                       style: TextStyle(
@@ -150,9 +156,15 @@ class __PageState extends State<_Page> {
                 flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
+                    backgroundColor: selectedConfiguratorIndex == 1
+                        ? buttonActiveColor
+                        : buttonInnactiveColor,
+                    ), 
+                   
                     child: Text(
                       "Element",
                       style: TextStyle(
@@ -161,9 +173,7 @@ class __PageState extends State<_Page> {
                             : textInactiveColor,
                       ),
                     ),
-                    color: selectedConfiguratorIndex == 1
-                        ? buttonActiveColor
-                        : buttonInnactiveColor,
+                    
                     onPressed: () {
                       setState(() {
                         selectedConfiguratorIndex = 1;
@@ -176,7 +186,8 @@ class __PageState extends State<_Page> {
                 flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
+                  child: ElevatedButton(
+                    
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
                     child: Text(
@@ -525,7 +536,7 @@ class __PageState extends State<_Page> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
+            child: ElevatedButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
               onPressed: () {
@@ -546,7 +557,7 @@ class __PageState extends State<_Page> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
+            child: ElevatedButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
               onPressed: () {
@@ -567,7 +578,7 @@ class __PageState extends State<_Page> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
+            child: ElevatedButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
               onPressed: () {
